@@ -1,0 +1,321 @@
+ 
+<!doctype html>
+<html>
+    <head>
+        <!-- BOOTSTRAP CORE STYLE  -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <!-- GOOGLE FONT -->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' crossorigin="anonymous" />
+
+        <!-- BOOTSTRAP JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+        <!-- CUSTOM STYLE CSS -->
+       
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+        <!-- Page description -->   
+
+
+        <!-- Page keywords -->
+        
+
+        <!-- Page author -->
+        
+        <meta name="author" content="Masaya Kawamura" />
+        
+
+        <!-- Site title -->
+        
+        
+            <title>Demonstration of Differentiable Digital Signal Processing Mixture Model for Synthesis Parameter Extraction from Mixture of Harmonic Sounds - Masaya Kawamura</title>
+        
+        
+
+        
+            
+                <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9EPRVMYY0Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9EPRVMYY0Z');
+</script>
+            
+        
+
+    </head>
+    <body>
+
+
+        <section class="jumbotron text-center">
+    <div class="container">
+        
+            <h1 class="jumbotron-heading">Demonstration of Differentiable Digital Signal Processing Mixture Model for Synthesis Parameter Extraction from Mixture of Harmonic Sounds [1]</h1>
+        
+        
+            <p class="lead">
+                Masaya Kawamura<sup>1</sup>, Tomohiko Nakamura<sup>1</sup>, Daichi Kitamura<sup>2</sup>, Hiroshi Saruwatari<sup>1</sup>, Yu Takahashi<sup>3</sup>, Kazunobu Kondo<sup>3</sup>
+            </p>
+            <p class="lead">
+                <sup>1</sup>The University of Tokyo, Tokyo, Japan<br>
+                <sup>2</sup>National Institute of Technology, Kagawa College, Kagawa, Japan<br>
+                <sup>3</sup>Yamaha Corporation, Shizuoka, Japan<br>
+            </p>
+        
+    </div>
+</section>
+        
+            <p><link rel="stylesheet" type="text/css" href="style.css"></p>
+<div class="container">
+    <div class="row">
+        <p class="lead text-left">
+            This is an accompanying page and includes some examples of the synthesized signals obtained with the proposed and conventional methods.
+            The mixture and groundtruth signals are from the University of Rochester multimodal music performance (URMP) dataset [2] and the PHENICX-Anechoic dataset [3, 4].
+            These audio signals are not included in the training data.
+        </p>
+
+    </div>
+</div>
+<p><br></p>
+<div class="album">
+    <div class="fluid-container">
+        <div class="row">
+            <div class="col-1">
+            </div>
+            <table class="table light col-10" style="table-layout: fixed;">
+                <thead>
+                    <tr>
+                        <th>Dataset</th>
+                        <th>Mixture</th>
+                        <th>Instrument</th>
+                        <th>Ground Truth</th>
+                        <th><b>SISS+DDSP</b></th>
+                        <th><b>SISS+Proposed</b></th>
+                        <th><b>SI-Proposed</b></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+<td class="font-weight-normal" style="vertical-align: middle;" rowspan="4">
+    URMP dataset
+    
+</td>
+<td class="font-weight-normal" style="vertical-align: middle;" rowspan="2">
+    Viola/Flute
+    <br>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Va_Fl/Ground_truth_Va_Fl.wav">
+    </audio>
+</td><td style="vertical-align: middle;" rowspan="1">Viola</td>
+<td>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Va_Fl/Ground_truth_Va.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Va_Fl/SISS+DDSP_Va.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Va_Fl/SISS+Proposed_Va.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Va_Fl/SI-Proposed_Va.wav">
+    </audio>
+</td>
+
+</tr><tr>
+<td style="vertical-align: middle;" rowspan="1">Flute</td>
+<td>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Va_Fl/Ground_truth_Fl.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Va_Fl/SISS+DDSP_Fl.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Va_Fl/SISS+Proposed_Fl.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Va_Fl/SI-Proposed_Fl.wav">
+    </audio>
+</td>
+</tr><tr>
+
+
+
+
+
+<td class="font-weight-normal" style="vertical-align: middle;" rowspan="2">
+    Flute 1/Flute 2
+    <br>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Fl_Fl/Ground_truth_Fl1_Fl2.wav">
+    </audio>
+</td><td style="vertical-align: middle;" rowspan="1">Flute 1</td>
+<td>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Fl_Fl/Ground_truth_Fl1.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Fl_Fl/SISS+DDSP_Fl1.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Fl_Fl/SISS+Proposed_Fl1.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Fl_Fl/SI-Proposed_Fl1.wav">
+    </audio>
+</td>
+
+</tr><tr>
+<td style="vertical-align: middle;" rowspan="1">Flute 2</td>
+<td>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Fl_Fl/Ground_truth_Fl2.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Fl_Fl/SISS+DDSP_Fl2.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Fl_Fl/SISS+Proposed_Fl2.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/urmp_Sample_Fl_Fl/SI-Proposed_Fl2.wav">
+    </audio>
+</td>
+<tr></tr>
+<td class="font-weight-normal" style="vertical-align: middle;" rowspan="4">
+    PHENICX-Anechoic dataset
+    
+</td>
+<td class="font-weight-normal" style="vertical-align: middle;" rowspan="2">
+    Cello/Double bass
+    <br>
+    <audio controls preload="metadata" src="demo/Sample_Vc_Db/Ground_truth_Vc_Db.wav">
+    </audio>
+</td><td style="vertical-align: middle;" rowspan="1">Cello</td>
+<td>
+    <audio controls preload="metadata" src="demo/Sample_Vc_Db/Ground_truth_Vc.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/Sample_Vc_Db/SISS+DDSP_Vc.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/Sample_Vc_Db/SISS+Proposed_Vc.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/Sample_Vc_Db/SI-Proposed_Vc.wav">
+    </audio>
+</td>
+
+</tr><tr>
+<td style="vertical-align: middle;" rowspan="1">Double bass</td>
+<td>
+    <audio controls preload="metadata" src="demo/Sample_Vc_Db/Ground_truth_Db.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/Sample_Vc_Db/SISS+DDSP_Db.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/Sample_Vc_Db/SISS+Proposed_Db.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/Sample_Vc_Db/SI-Proposed_Db.wav">
+    </audio>
+</td>
+</tr><tr>
+
+
+
+
+
+<td class="font-weight-normal" style="vertical-align: middle;" rowspan="2">
+    Flute 1/Flute 2
+    <br>
+    <audio controls preload="metadata" src="demo/Sample_Fl_Fl/Ground_truth_Fl1_Fl2.wav">
+    </audio>
+</td><td style="vertical-align: middle;" rowspan="1">Flute 1</td>
+<td>
+    <audio controls preload="metadata" src="demo/Sample_Fl_Fl/Ground_truth_Fl1.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/Sample_Fl_Fl/SISS+DDSP_Fl1.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/Sample_Fl_Fl/SISS+Proposed_Fl1.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/Sample_Fl_Fl/SI-Proposed_Fl1.wav">
+    </audio>
+</td>
+
+</tr><tr>
+<td style="vertical-align: middle;" rowspan="1">Flute 2</td>
+<td>
+    <audio controls preload="metadata" src="demo/Sample_Fl_Fl/Ground_truth_Fl2.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/Sample_Fl_Fl/SISS+DDSP_Fl2.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/Sample_Fl_Fl/SISS+Proposed_Fl2.wav">
+    </audio>
+</td>
+<td>
+    <audio controls preload="metadata" src="demo/Sample_Fl_Fl/SI-Proposed_Fl2.wav">
+    </audio>
+</td>
+</tr>
+<tr>
+
+
+
+</tr>
+                </tbody>
+            </table>
+            <div class="col-1">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h1>References</h1>
+    <div>
+        [1] M. Kawamura, T. Nakamura, D. Kitamura, H. Saruwatari, Y. Takahashi, and K. Kondo, "Differentiable digital signal processing mixture model for synthesis parameter extraction from mixture of harmonic sounds," in <em>Proceedings of IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)</em>, May 2022. (to appear)
+        <br>
+        [2] B. Li, X. Liu, K. Dinesh, Z. Duan, G. Sharma, "Creating a multitrack classical music performance dataset for multimodal music analysis: Challenges, insights, and applications," <em>IEEE Transactions on Multimedia</em>, vol. 21, no. 2, pp. 522-535, 2019.
+        <br>
+        [3] M. Miron, J. J. Carabias-Orti, J. J. Bosch, E. Gómez, and J. Janer, "Score-informed source separation for multichannel orchestral recordings," <em>Journal of Electrical and Computer Engineering</em>, vol. 2016, 2016.
+        <br>
+        [4] J. Pätynen, V. Pulkki, and T. Lokki, "Anechoic recording system for symphony orchestra," <em>Acta Acustica united with Acustica</em>, vol. 94, no. 6, pp. 856–865, 2008.
+        
+
+    </div>
+</div>
+        
+    </body>
+</html>
